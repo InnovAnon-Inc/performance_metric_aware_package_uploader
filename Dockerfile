@@ -13,7 +13,7 @@ RUN apt-get update                             \
 
 WORKDIR /app
 
-COPY performance_metric_aware_package_uploader/uploader.sh /usr/local/bin/uploader.sh
+COPY ./uploader.sh /usr/local/bin/uploader.sh
 RUN chmod +x /usr/local/bin/uploader.sh
 
 ENTRYPOINT ["/usr/local/bin/uploader.sh"]

@@ -1,0 +1,22 @@
+services:
+
+  performance_metric_aware_package_uploader: # handles -march= / -mtune= architecture-specific distribution
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: performance_metric_aware_package_uploader
+    hostname: performance_metric_aware_package_uploader.innovanon.coom
+    #network_mode: host
+    environment:
+      - GH_TOKEN=${GH_TOKEN}
+      - GH_USER=InnovAnon-Inc
+      - GH_EMAIL=InnovAnon-Inc@gmx.com
+    volumes:
+      - performance_metric_aware_package_builder-staging:/staging:rw
+    restart: unless-stopped
+#    depends_on:
+#      - performance_metric_aware_package_builder
+
+#volumes:
+#  performance_metric_aware_package_builder-staging:
+
